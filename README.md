@@ -57,6 +57,22 @@ Full 365-day history, 366 trades (exactly 1/day), 13/13 months positive, statist
 - Walk-forward OOS stable (69.9% win)
 - Top-5 coins removed → still +$204.97
 
+## 📊 Grid Backtest (Volume-Based Sizing + P/L Line)
+
+| N/chunk | Trades | Net | Win | Months+ | Line Cross | Verdict |
+|---------|--------|-----|-----|---------|------------|---------|
+| 1 | 14 | $12 | 64.3% | 4/5 | ❌ CROSS | FAIL |
+| 2 | 23 | $155 | 60.9% | 5/8 | ❌ CROSS | FAIL |
+| 3 | 38 | $310 | 68.4% | 8/9 | ✅ No | PASS |
+| 5 | 57 | $389 | 68.4% | 11/12 | ✅ No | PASS |
+| 15 | 213 | $1,423 | 67.6% | 12/13 | ✅ No | PASS |
+| **20** | **268** | **$1,998** | **69.4%** | **13/13** | ✅ No | **PASS** |
+
+- **Best uniform:** N=20 (268 trades, +$1,998, 69.4%, 13/13 months, no-cross)
+- **Best mixed:** {C1:1, C2:19, C3:1, C4:21, C5:15, C6:37} → +$2,116
+- **Volume-based sizing:** position = 0.5% of 24h turnover (10k volume → 50 USDT, trap-avoid)
+- **1-1 / 2-2 coins/chunk → line CROSS (trap)** — 3+ coins/chunk se safe
+
 ## 📂 Files
 
 | File | Description |
